@@ -18,8 +18,8 @@ style and formatting, instead of actually thinking about the content and express
 visually.
 
 Arguably, the situation was better when Microsoft ruled the world, and MS Word and Visio operated to
-some extent as de facto standards, and interoperated reasonably well. But if this was ever the case
-for a while, it isn't any more.
+some extent as de facto standards, and interoperated reasonably well. But if they were ever ubiquitous
+for a while, they aren't any more.
 
 The web offers the promise of content organized into coherent chunks and joined together by references
 (links), eliminating repetition and enhancing knowledge - Wikipedia is clearest example.
@@ -27,6 +27,8 @@ The web offers the promise of content organized into coherent chunks and joined 
 But owing to the sucky situation with diagrams, this content is largely text, with a few pictures
 scattered around.
 
+So let's define a simple markdown standard for using simple, readable, text to draw a wide variety of
+diagrams...
 
 
 ## How?
@@ -48,8 +50,8 @@ Throw in a few principles specifically around diagrams:
   * And, err, that's it...
 
 Get inspiration from what's already out there, in particular:
-* Graphviz
-* flowchart.js
+* [Graphviz](http://www.graphviz.org/)
+* [flowchart.js](https://adrai.github.io/flowchart.js/)
 
 
 
@@ -60,8 +62,8 @@ Get inspiration from what's already out there, in particular:
   2. Borrowing from Graphviz, the " -- " symbol represents a symmetric connection between two concepts, or, in more
      mathematical language, an undirected edge between two nodes.
   3. The " -> " symbol represents an unsymmetric connection, a directed edge.
-  4. The " (- " symbol represents "belongs to", looking a little like the "element of" symbol in set notation. Hence
-     "A (- B" would be drawn as a box labelled "B" containing another box labelled "A".
+  4. The " (- " symbol represents "belongs to", looking a little like the "element of" symbol in set notation (&#8712;).
+     Hence "A (- B" would be drawn as a box labelled "B" containing another box labelled "A".
   5. The above two symbols can be reversed.
 
 2. Exodus
@@ -81,23 +83,47 @@ Get inspiration from what's already out there, in particular:
      5. nodes can be referenced subsequently using just the identifier
 
 3. Leviticus
-  1. 2.6.5 above introduces the possibility of inconsistency into the spec - the same node can be defined mulitple
-    times (i.e. by having the same identifier), but being given different a type and/or label.
+  1. 2.6.5 above introduces the possibility of inconsistency into the spec - the same node can be defined multiple
+     times (i.e. by having the same identifier), but being given different a type and/or label.
   2. The renderer should use the final specification values given, but is allowed to report such inconsistencies,
-    but without obscuring the diagram.
+     but without obscuring the diagram.
+  3. Diagram markdown can run continuously, with the edge symbols: --, ->, <-, (-, and -) acting as the primary
+     separators, with the text between them interpreted as nodes or edges, as per 2.6 above.
+  4. However, by convention, each line should represent either (a) one node alone, (b) two nodes joined by an
+     edge, (c) a node and an edge, joining the node to the next line, or (d) a sequence of short nodes and edges.
 
 
 
 
 ## Where?
 
+Diamond diagrams could be stored in their own files, perhaps with their own file extension (.dia?), but they would
+be more useful embedded within markdown text documents, which is the intention - a seamless flow of content, rather
+than a technology-dictated division between words and pictures.
+
+Exactly how the diamond markdown is embedded within the "host" markdown and differentiated from it would depend on
+that host markdown. For example, within "markdown":
+
+```
+## All Life is Problem Solving
+In [Popper's view](https://en.wikipedia.org/wiki/Karl_Popper), the advance of scientific knowledge is an evolutionary
+process characterised by his formula:
+
+@dia
+  PS1 "Problem Situation 1" ->
+  TT  "Tentative Theories (competing conjectures)" ->
+  EE  "Error Elimination" ->
+  PS2 "Problem Situation 2 (more interesting problems)"
+@
+```
 
 
 ## When?
 
+?
 
 
 
 ## Who?
 
-
+?
