@@ -74,7 +74,7 @@ Get inspiration from what's already out there, in particular:
      too!
   6. So we introduce the attributes of identifier, label and type to the node, and while we're about it, we might as
      well give them to the edge as well:
-     1. identifier [type] "label"
+     1. identifier [type] "label" (link url)
      2. where identifier and type are both: [a-zA-Z0-9_-\.]+
      3. all are optional, if label is not specified then identifier is used
      4. when applied to an edge, they are placed inside the edge symbol, with two extra dashes, e.g.
@@ -91,7 +91,7 @@ Get inspiration from what's already out there, in particular:
      separators, with the text between them interpreted as nodes or edges, as per 2.6 above.
   4. However, by convention, each line should represent either (a) one node alone, (b) two nodes joined by an
      edge, (c) a node and an edge, joining the node to the next line, or (d) a sequence of short nodes and edges.
-
+  5. It should be possible to annotate a node or an edge within the diagram markdown.
 
 
 
@@ -106,8 +106,8 @@ that host markdown. For example, within "markdown":
 
 ```
 ## All Life is Problem Solving
-In [Popper's view](https://en.wikipedia.org/wiki/Karl_Popper), the advance of scientific knowledge is an evolutionary
-process characterised by his formula:
+In [Popper's view](https://en.wikipedia.org/wiki/Karl_Popper), the advance of
+scientific knowledge is an evolutionary process characterised by his formula:
 
 @dia
   PS1 "Problem Situation 1" ->
